@@ -6,7 +6,9 @@ import time
 
 # Initialize Firebase safely
 if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase_key.json")
+    firebase_config = dict(st.secrets["firebase"])
+
+    cred = credentials.Certificate(firebase_config)
 
     firebase_admin.initialize_app(
         cred,
