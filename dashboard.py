@@ -19,7 +19,7 @@ if not firebase_admin._apps:
 # Web Application
 st.title("IoT Sensor Dashboard")
 
-st.write("Live Voltage Monitoring from Potentiometer → ESP32 → HC05")
+st.write("Web Application Dashboard: SnO2-BN based gas sensing ")
 
 # Read latest voltage
 latest_ref = db.reference("FireBaseIOT/R")
