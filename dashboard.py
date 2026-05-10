@@ -35,7 +35,7 @@ if latest_value is not None:
 else:
     st.metric("Current Voltage", "No data")
 
-if predicted_gas in not None:
+if predicted_gas is not None:
     st.metric("Predicted Gas: ",predicted_gas)
 else:
     st.metric("Predicted Gas: Processing....")
