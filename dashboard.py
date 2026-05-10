@@ -30,15 +30,17 @@ predicted_gas_value = db.reference("Pred_Gas/Gas")
 
 predicted_gas = predicted_gas_value.get()
 
+col1, col2 = st.columns(2)
+
 if latest_value is not None:
-    st.metric("Current Resistance", latest_value)
+    col1.metric("Current Resistance", latest_value)
 else:
-    st.metric("Current Resistance", "No data")
+    col1.metric("Current Resistance", "No data")
 
 if predicted_gas is not None:
-    st.metric("Predicted Gas: ",predicted_gas)
+    col2.metric("Predicted Gas: ",predicted_gas)
 else:
-    st.metric("Predicted Gas: Processing....")
+    col2.metric("Predicted Gas: Processing....")
 
 # Read history
 history_ref = db.reference("FireBaseIOT/Latest")
