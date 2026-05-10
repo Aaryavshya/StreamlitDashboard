@@ -63,7 +63,7 @@ if data:
 
     df = df.sort_values("timestamp")
 
-    st.line_chart(df["voltage"])
+    st.line_chart(df["voltage"],x_label="Sample Points",y_label="Resistance")
 
 else:
     st.write("No history data yet")
