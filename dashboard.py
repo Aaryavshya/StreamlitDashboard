@@ -26,10 +26,19 @@ latest_ref = db.reference("FireBaseIOT/R")
 
 latest_value = latest_ref.get()
 
+predicted_gas_value = db.reference("Pred_Gas/Gas")
+
+predicted_gas = predicted_gas_value.get()
+
 if latest_value is not None:
     st.metric("Current Voltage", latest_value)
 else:
     st.metric("Current Voltage", "No data")
+
+if predicted_gas in not None:
+    st.metric("Predicted Gas: ",predicted_gas)
+else:
+    st.metric("Predicted Gas: Processing....")
 
 # Read history
 history_ref = db.reference("FireBaseIOT/Latest")
