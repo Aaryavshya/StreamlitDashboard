@@ -31,9 +31,9 @@ predicted_gas_value = db.reference("Pred_Gas/Gas")
 predicted_gas = predicted_gas_value.get()
 
 if latest_value is not None:
-    st.metric("Current Voltage", latest_value)
+    st.metric("Current Resistance", latest_value)
 else:
-    st.metric("Current Voltage", "No data")
+    st.metric("Current Resistance", "No data")
 
 if predicted_gas is not None:
     st.metric("Predicted Gas: ",predicted_gas)
