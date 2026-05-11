@@ -41,7 +41,10 @@ if session_timestamp is not None:
 else:
     col1.metric("Session Timestamp: ","fetching...")
 
-col2.metric("","")
+if latest_value is not None:
+    col2.metric("Current Resistance", latest_value)
+else:
+    col2.metric("Current Resistance", "No data")
 
 if predicted_gas is not None:
     col1.metric("Predicted Gas: ", predicted_gas)
@@ -53,10 +56,6 @@ if predicted_concentration is not None:
 else:
     col2.metric("Predicted Concentration: ","Processing...")
 
-if latest_value is not None:
-    col1.metric("Current Resistance", latest_value)
-else:
-    col1.metric("Current Resistance", "No data")
 
 # Read history
 history_ref = db.reference("FireBaseIOT/Latest")
