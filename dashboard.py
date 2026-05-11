@@ -41,6 +41,8 @@ if session_timestamp is not None:
 else:
     col1.metric("Session Timestamp: ","fetching...")
 
+col2.metric("")
+
 if predicted_gas is not None:
     col1.metric("Predicted Gas: ", predicted_gas)
 else:
