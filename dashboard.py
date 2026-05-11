@@ -34,27 +34,27 @@ predicted_concentration = ref_concentration.get()
 session_timestamp = ref_timestamp.get()
 
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(2)
+
+if session_timestamp is not None:
+    col1.metric("Session Timestamp: ", session_timestamp)
+else:
+    col1.metric("Session Timestamp: ","fetching...")
+
+if predicted_gas is not None:
+    col1.metric("Predicted Gas: ", predicted_gas)
+else:
+    col1.metric("Predicted Gas: ","Processing...")
+
+if predicted_concentration is not None:
+    col2.metric("Predicted Concentration: ", predicted_concentration)
+else:
+    col2.metric("Predicted Concentration: ","Processing...")
 
 if latest_value is not None:
     col1.metric("Current Resistance", latest_value)
 else:
     col1.metric("Current Resistance", "No data")
-
-if predicted_gas is not None:
-    col2.metric("Predicted Gas: ", predicted_gas)
-else:
-    col2.metric("Predicted Gas: ","Processing...")
-
-if predicted_concentration is not None:
-    col3.metric("Predicted Concentration: ", predicted_concentration)
-else:
-    col3.metric("Predicted Concentration: ","Processing...")
-
-if session_timestamp is not None:
-    col4.metric("Session Timestamp: ", session_timestamp)
-else:
-    col4.metric("Session Timestamp: ","fetching...")
 
 # Read history
 history_ref = db.reference("FireBaseIOT/Latest")
